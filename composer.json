@@ -1,0 +1,17 @@
+{
+    "name": "drupal/superspotify",
+    "description": "Making Spotify Better.",
+    "type": "drupal-module",
+    "authors": [
+        {
+            "name": "Phil Plencner (beefheartfan)",
+            "homepage": "https://www.drupal.org/u/beefheartfan",
+            "role": "Maintainer"
+        }
+    ],
+    "license": "GPL-2.0+",
+    "minimum-stability": "dev",
+    "require": {
+        "jwilsson/spotify-web-api-php": "~2.2"
+    }
+}

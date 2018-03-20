@@ -1,0 +1,17 @@
+<?php
+
+/**
+ * @file
+ * Installation functions for Super Spotify module.
+ */
+
+use Drupal\user\RoleInterface;
+
+/**
+ * Implements hook_install().
+ */
+function superspotify_install() {
+  user_role_change_permissions(RoleInterface::AUTHENTICATED_ID, array(
+    'import spotify albums' => TRUE, 
+  ));
+}

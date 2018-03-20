@@ -1,0 +1,4 @@
+superspotify:
+  clientid: '9a2c0cab21da438f94c38ce93d074684'
+  clientsecret: 'c75fb7a5f2ae40c1ac9485cde7be16c7'
+  redirecturi: 'https://plencnerlabs.com/superspotify/callback'

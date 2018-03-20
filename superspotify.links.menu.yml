@@ -1,0 +1,5 @@
+superspotify.form:
+  title: 'Super Spotify settings'
+  description: 'Configure settings for the Super Spotify module.'
+  route_name: superspotify.form
+  parent: 'system.admin_config_development'

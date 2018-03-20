@@ -1,0 +1,22 @@
+{#
+/**
+ * @file
+ * Default theme implementation for Super Spotify.
+ *
+ * Available variables:
+ *  - spotify_text
+ *
+ * @ingroup themeable
+ */
+#}
+<div class="superspotify">
+	<p><strong>saved albums:</strong></p>
+	{% for album in spotify_text.albums %}
+  		<h2><a href="{{album.album_url}}" target="_new">{{ album.album_name }}</a></h2>
+		<p>
+			<strong><a href="{{album.artist_url}}" target="_new">{{album.artist_name}}</a></strong><br/>
+			{{album.release_date}}<br />
+			<img src="{{album.artwork_url}}" width="200px">
+		</p>
+	{% endfor %}
+</div>

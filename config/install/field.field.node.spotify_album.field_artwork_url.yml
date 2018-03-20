@@ -1,0 +1,23 @@
+# field.field.node.spotify_album.field_artwork_url.yml
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_artwork_url
+    - node.type.spotify_album
+  module:
+    - link
+id: node.spotify_album.field_artwork_url
+field_name: field_artwork_url
+entity_type: node
+bundle: spotify_album
+label: 'Artwork URL'
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  link_type: 16
+  title: 0
+field_type: link

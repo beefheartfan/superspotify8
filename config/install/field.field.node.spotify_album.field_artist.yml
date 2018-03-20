@@ -1,0 +1,19 @@
+# field.field.node.spotify_album.field_artist.yml
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_artist
+    - node.type.spotify_album
+id: node.spotify_album.field_artist
+field_name: field_artist
+entity_type: node
+bundle: spotify_album
+label: Artist
+description: 'The name of the artist associated with this album.'
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

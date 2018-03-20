@@ -1,0 +1,80 @@
+# core.entity_view_display.node.spotify_album.default.yml
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.spotify_album.field_album_url
+    - field.field.node.spotify_album.field_artist
+    - field.field.node.spotify_album.field_artist_url
+    - field.field.node.spotify_album.field_artwork_url
+    - field.field.node.spotify_album.field_release_date
+    - node.type.spotify_album
+  module:
+    - datetime
+    - link
+    - text
+    - user
+_core:
+  default_config_hash: pJ-csUqVvrAq7x5j_b7-XveZLZb9_ihFmuQwl6VEtxM
+id: node.spotify_album.default
+targetEntityType: node
+bundle: spotify_album
+mode: default
+content:
+  field_album_url:
+    weight: 104
+    label: above
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    type: link
+    region: content
+  field_artist:
+    weight: 102
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_artist_url:
+    weight: 103
+    label: above
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    type: link
+    region: content
+  field_artwork_url:
+    weight: 106
+    label: above
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    type: link
+    region: content
+  field_release_date:
+    weight: 105
+    label: above
+    settings:
+      format_type: medium
+      timezone_override: ''
+    third_party_settings: {  }
+    type: datetime_default
+    region: content
+  links:
+    weight: 100
+    region: content
+hidden: {  }

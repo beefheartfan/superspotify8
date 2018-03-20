@@ -1,0 +1,29 @@
+superspotify.import:
+  path: 'superspotify/import'
+  defaults:
+    _controller: 'Drupal\superspotify\Controller\SuperSpotifyController::import'
+  requirements:
+    _permission: 'import super spotify'
+
+superspotify.callback:
+  path: 'superspotify/callback'
+  defaults:
+    _controller: 'Drupal\superspotify\Controller\SuperSpotifyController::callback'
+  requirements:
+    _permission: 'import super spotify'
+
+superspotify.form:
+  path: '/admin/config/development/superspotify'
+  defaults:
+    _form: 'Drupal\superspotify\Form\SuperSpotifyForm'
+    _title: 'Super Spotify settings'
+  requirements:
+    _permission: 'administer site configuration'
+    
+superspotify.batchform:
+  path: 'superspotify/batchimport'
+  defaults:
+    _form: '\Drupal\superspotify\Form\SuperSpotifyBatchForm'
+    _title: 'Super Spotify Batch Importer'
+  requirements:
+    _permission: 'import super spotify'    

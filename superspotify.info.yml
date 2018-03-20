@@ -1,0 +1,12 @@
+name: Super Spotify
+type: module
+description: 'Making Spotify Better'
+package: Custom
+core: 8.x
+dependencies:
+  - datetime:datetime
+  - link:link
+  - text:text
+  - drupal:views
+  - better_exposed_filters:better_exposed_filters
+configure: superspotify.form

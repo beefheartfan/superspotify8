@@ -1,0 +1,30 @@
+# core.entity_view_display.node.spotify_album.teaser.yml
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.spotify_album.field_album_url
+    - field.field.node.spotify_album.field_artist
+    - field.field.node.spotify_album.field_artist_url
+    - field.field.node.spotify_album.field_artwork_url
+    - field.field.node.spotify_album.field_release_date
+    - node.type.spotify_album
+  module:
+    - user
+_core:
+  default_config_hash: IGtuunduU6sFkyqXtqKH_9sXTeGRLN9jKJ-3oSEUrqg
+id: node.spotify_album.teaser
+targetEntityType: node
+bundle: spotify_album
+mode: teaser
+content:
+  links:
+    weight: 100
+    region: content
+hidden:
+  field_album_url: true
+  field_artist: true
+  field_artist_url: true
+  field_artwork_url: true
+  field_release_date: true
