@@ -22,6 +22,12 @@ Using the Module
 
 After installing the module, a Spotify Albums content type is created. 
 
+You must have a Spotify API Developer account to use this module. Sign up here:
+https://beta.developer.spotify.com/dashboard/login
+
+Once you have signed up, you can set your user keys on the configuration form here:
+<sitename>/admin/config/development/superspotify/
+
 Additionally a Your Spotify Albums view is created that queries the Spotify Albums content type. 
 It is located here: <sitename>/superspotify/albums/
   
