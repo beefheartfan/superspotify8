@@ -38,7 +38,46 @@ function superspotify_theme($existing, $type, $theme, $path) {
 function superspotify_batch_import($id, $operation_details, &$context) {
 
   $context['results'][] = $id;
+  $myAlbums = '';
 
+	// Default Settings
+	$config = \Drupal::config('superspotify.settings');
+	$clientid = $config->get('superspotify.clientid');
+	$clientsecret = $config->get('superspotify.clientsecret');
+	$redirecturi = $config->get('superspotify.redirecturi');
+
+	$session = new SpotifyWebAPI\Session($clientid, $clientsecret, $redirecturi);
+
+	$options = [
+		'scope' => [
+			'user-library-read',
+		],
+	];
+	$authorizeUrl = $session->getAuthorizeUrl($options);
+	$scopes = $session->getScope();
+	$api = new SpotifyWebAPI\SpotifyWebAPI();
+	session_start();
+	if (isset($_SESSION['superspotify_token'])) {
+		$api = new SpotifyWebAPI\SpotifyWebAPI();
+		$accessToken = $_SESSION['superspotify_token'];
+		$api->setAccessToken($accessToken);
+		$scopes = $session->getScope();
+
+    if ($id == 0 || $id % 50 == 0) {
+      $myAlbums = $api->getMySavedAlbums(array('offset' =>$id, 'limit' => 50));
+    }
+  }
+  else {
+		header('Location: ' . $session->getAuthorizeUrl($options));
+		die();    
+  }
+  if ($id >= 50) {
+  $offset = ($id % 50);
+  }
+  else {
+    $offset = $id;
+  }
+  $album_name = $myAlbums->items[$offset]->album->name;
   // Optional message displayed under the progressbar.
   $context['message'] = t('Importing Album "@album_name" @details',
     ['@album_name' => $album_name, '@details' => $operation_details]
