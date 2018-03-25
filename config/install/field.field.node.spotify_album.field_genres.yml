@@ -1,0 +1,29 @@
+# field.field.node.spotify_album.field_genres.yml
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_genres
+    - node.type.spotify_album
+    - taxonomy.vocabulary.super_spotify_genres
+id: node.spotify_album.field_genres
+field_name: field_genres
+entity_type: node
+bundle: spotify_album
+label: Genres
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      super_spotify_genres: super_spotify_genres
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

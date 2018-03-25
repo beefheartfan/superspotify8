@@ -75,18 +75,41 @@ class SuperSpotifyBatchForm extends FormBase {
   }    
     
     drupal_set_message(t('Importing @num Spotify albums', ['@num' => $total_albums]));
-
-    $albums = [];
+    superspotify_delete_albums();
     
-      for ($i = 0; $i < $total_albums; $i++) {
+    $albums = [];
+    for ($x = 0; $x <= $total_albums; $x += 50) {
+      $myAlbums = $api->getMySavedAlbums(array('offset' =>$x, 'limit' => 50));
+      foreach ($myAlbums->items as $item) {	
+        $album_name = $item->album->name;
+        $album_url = $item->album->external_urls->spotify;
+        $artist_name = $item->album->artists[0]->name;
+        $artist_id = $item->album->artists[0]->id;
+        $artist_url = $item->album->artists[0]->external_urls->spotify;
+        $artwork_url = $item->album->images[0]->url;
+        $release_date = $item->album->release_date;
+        $current_album = array(
+        'album_name' => Html::escape($album_name), 
+        'album_url' => Html::escape($album_url), 
+        'artist_name' => Html::escape($artist_name),
+        'artist_id' => Html::escape($artist_id),
+        'artist_url' => Html::escape($artist_url),
+        'artwork_url' => Html::escape($artwork_url),
+        'release_date' => Html::escape($release_date),
+        );
+        
         $albums[] = [
           'superspotify_batch_import',
           [
             $i + 1,
             t('(Album @operation)', ['@operation' => $i]),
+            $current_album,
+            $api,
           ],
-        ];
-      }
+        ];      
+      
+      }			
+    }
 
     $batch = [
       'title' => t('Importing @num albums', ['@num' => $total_albums]),

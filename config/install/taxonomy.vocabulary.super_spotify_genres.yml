@@ -1,0 +1,9 @@
+# taxonomy.vocabulary.super_spotify_genres.yml
+langcode: en
+status: true
+dependencies: {  }
+name: 'Super Spotify Genres'
+vid: super_spotify_genres
+description: 'Musical Genres for Super Spotify'
+hierarchy: 0
+weight: 0
